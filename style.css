@@ -1,0 +1,286 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Variáveis de cores */
+:root {
+    --bg-dark: #0a0a0a;          
+    --bg-gradient1: #0a0a0a;
+    --bg-gradient2: #001a00;
+    --text-light: #ffffff;
+    --accent-green: #00ff7f;     
+    --accent-dark: #003300;      
+    --card-bg: rgba(0,0,0,0.7);
+    --shadow-glow: 0 0 10px var(--accent-green), 0 0 20px var(--accent-green);
+}
+
+/* Fundo animado para todas as páginas */
+body {
+    background: linear-gradient(-45deg, var(--bg-gradient1), var(--bg-gradient2), var(--bg-gradient1), var(--bg-gradient2));
+    background-size: 400% 400%;
+    animation: gradientBG 20s ease infinite;
+    color: var(--text-light);
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Header */
+header {
+    padding: 20px 50px;
+    background-color: var(--bg-dark);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+header .logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--accent-green);
+    text-shadow: 0 0 5px var(--accent-green);
+}
+
+/* Menu Hamburger Superior */
+.menu-hamburger-top {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 110;
+}
+
+.menu-hamburger-top .hamburger-icon {
+    font-size: 32px;
+    color: var(--accent-green);
+    cursor: pointer;
+    user-select: none;
+    transition: 0.3s;
+}
+
+.menu-hamburger-top .hamburger-icon:hover {
+    color: #00ff99;
+}
+
+.menu-hamburger-top .menu-items {
+    display: none;
+    flex-direction: column;
+    background-color: rgba(0,0,0,0.85);
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 10px;
+    box-shadow: var(--shadow-glow);
+}
+
+.menu-hamburger-top .menu-items a {
+    text-decoration: none;
+    color: var(--text-light);
+    padding: 8px 0;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.menu-hamburger-top .menu-items a:hover {
+    color: var(--accent-green);
+}
+
+/* Hero Section (index.html) */
+.hero {
+    text-align: center;
+    padding: 150px 20px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px var(--accent-green);
+}
+
+.hero p {
+    font-size: 20px;
+    margin-bottom: 30px;
+    color: #ccc;
+}
+
+.btn {
+    background-color: var(--bg-dark);
+    color: var(--accent-green);
+    padding: 15px 30px;
+    font-weight: bold;
+    border-radius: 10px;
+    text-decoration: none;
+    border: 2px solid var(--accent-green);
+    transition: 0.3s;
+    box-shadow: var(--shadow-glow);
+}
+
+.btn:hover {
+    background-color: var(--accent-green);
+    color: var(--bg-dark);
+}
+
+/* Produtos Section (produtos.html) */
+.produtos {
+    padding: 80px 50px;
+}
+
+.produtos h2 {
+    text-align: center;
+    font-size: 36px;
+    color: var(--accent-green);
+    margin-bottom: 40px;
+    text-shadow: var(--shadow-glow);
+}
+
+.categoria-title {
+    margin-top: 60px;
+    margin-bottom: 20px;
+    color: var(--accent-green);
+    font-size: 28px;
+    text-shadow: var(--shadow-glow);
+}
+
+.grid-produtos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+}
+
+.produto {
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid var(--accent-dark);
+    transition: transform 0.3s, box-shadow 0.3s, border 0.3s;
+}
+
+.produto img {
+    width: 120px;
+    height: auto;
+    margin-bottom: 15px;
+    border-radius: 10px;
+}
+
+.produto h3 {
+    margin: 10px 0 5px 0;
+    text-align: center;
+}
+
+.produto p {
+    font-size: 14px;
+    color: #ccc;
+    text-align: center;
+}
+
+.produto:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 20px var(--accent-green), 0 0 40px #00ff99;
+    border: 2px solid var(--accent-green);
+}
+
+.btn-detalhes {
+    background-color: var(--bg-dark);
+    color: var(--accent-green);
+    border: 2px solid var(--accent-green);
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.3s;
+    box-shadow: var(--shadow-glow);
+}
+
+.btn-detalhes:hover {
+    background-color: var(--accent-green);
+    color: var(--bg-dark);
+    box-shadow: 0 0 15px var(--accent-green), 0 0 30px #00ff99;
+    transform: translateY(-3px);
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background: rgba(0,0,0,0.95);
+    backdrop-filter: blur(4px);
+}
+
+.modal-content {
+    background-color: rgba(0,0,0,0.9);
+    margin: 10% auto;
+    padding: 30px;
+    border: 3px solid var(--accent-green);
+    width: 80%;
+    max-width: 500px;
+    border-radius: 15px;
+    text-align: center;
+    color: var(--text-light);
+    box-shadow: var(--shadow-glow);
+}
+
+.modal-content h3 {
+    margin-bottom: 20px;
+    color: var(--accent-green);
+    text-shadow: var(--shadow-glow);
+}
+
+.modal-content p {
+    font-size: 16px;
+    color: #ccc;
+}
+
+.modal-content .close {
+    color: var(--accent-green);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.modal-content .close:hover {
+    color: #00ff99;
+}
+
+/* Sobre */
+.sobre {
+    padding: 100px 50px;
+    background-color: var(--bg-dark);
+    text-align: center;
+}
+
+.sobre p {
+    max-width: 800px;
+    margin: 20px auto 0 auto;
+    color: #ccc;
+    font-size: 16px;
+}
+
+/* Footer */
+footer {
+    background-color: var(--bg-dark);
+    text-align: center;
+    padding: 30px 0;
+    color: #777;
+    font-size: 14px;
+}

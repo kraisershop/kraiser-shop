@@ -1,1 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kraiser Shop</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+    <!-- Header -->
+    <header>
+        <div class="logo">Kraiser Shop</div>
+    </header>
+
+    <!-- Menu Hamburger no topo -->
+    <div class="menu-hamburger-top">
+        <div class="hamburger-icon">&#9776;</div>
+        <div class="menu-items">
+            <a href="#inicio">Início</a>
+            <a href="produtos.html">Produtos</a>
+            <a href="#sobre">Sobre</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <h1>Bem-vindo à Kraiser Shop</h1>
+        <p>Descubra nossos bots para Discord: do simples ao premium, todos com alta performance e personalização.</p>
+        <a href="produtos.html" class="btn">Ver Produtos</a>
+    </section>
+
+    <!-- Sobre Section -->
+    <section class="sobre" id="sobre">
+        <h2>Sobre Nós</h2>
+        <p>Somos uma loja apaixonada por bots, oferecendo soluções de alta performance e personalização para todos os clientes. Cada bot é criado pensando na melhor experiência para seu servidor Discord.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Kraiser Shop. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Script para Hamburger -->
+    <script>
+        const hamburgerIcon = document.querySelector('.hamburger-icon');
+        const menuItems = document.querySelector('.menu-items');
+
+        hamburgerIcon.addEventListener('click', () => {
+            menuItems.style.display = menuItems.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Fechar menu clicando fora
+        window.addEventListener('click', (e) => {
+            if (!hamburgerIcon.contains(e.target) && !menuItems.contains(e.target)) {
+                menuItems.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
